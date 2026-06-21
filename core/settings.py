@@ -92,19 +92,26 @@ DATABASES = {
 
 
 # ── Email (Gmail SMTP) ─────────────────────────────────────────────────────────
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465          # ← change from 587 to 465
-EMAIL_USE_SSL = True      # ← change from EMAIL_USE_TLS to EMAIL_USE_SSL
-EMAIL_USE_TLS = False     # ← set this to False
-# EMAIL_PORT     = int(os.environ.get('EMAIL_PORT', 465))
-# EMAIL_USE_SSL  = os.environ.get('EMAIL_USE_SSL', 'True') == 'True'
-# EMAIL_USE_TLS  = os.environ.get('EMAIL_USE_TLS', 'False') == 'True'
-# EMAIL_HOST_USER = 'seemap232004@gmail.com'
-# EMAIL_HOST_PASSWORD = 'devt znrn lgjg amwg'
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 465          # ← change from 587 to 465
+# EMAIL_USE_SSL = True      # ← change from EMAIL_USE_TLS to EMAIL_USE_SSL
+# EMAIL_USE_TLS = False     # ← set this to False
+# # EMAIL_PORT     = int(os.environ.get('EMAIL_PORT', 465))
+# # EMAIL_USE_SSL  = os.environ.get('EMAIL_USE_SSL', 'True') == 'True'
+# # EMAIL_USE_TLS  = os.environ.get('EMAIL_USE_TLS', 'False') == 'True'
+# # EMAIL_HOST_USER = 'seemap232004@gmail.com'
+# # EMAIL_HOST_PASSWORD = 'devt znrn lgjg amwg'
+# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
+DEFAULT_FROM_EMAIL = 'laxmihardi191@gmail.com'
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = []
