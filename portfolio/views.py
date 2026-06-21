@@ -65,7 +65,7 @@ def contact(request):
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[email],
                 html_message=confirmation_html,
-                fail_silently=False,
+                fail_silently=True,   # ← THIS WAS FALSE BEFORE 22-06-2026
             )
             # Notify yourself
             send_mail(
